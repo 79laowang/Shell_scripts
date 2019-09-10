@@ -53,3 +53,13 @@ fail(){
     log4sh 2 "$*"
     exit 1
 }
+
+#---  FUNCTION  ----------------------------------------------------------------
+#          NAME: sp-line
+#   DESCRIPTION: Print a 80 '-' characters separate line
+#    PARAMETERS: failed error message
+#       RETURNS: none
+#-------------------------------------------------------------------------------
+sp-line(){
+    printf '%.0s-' {1..80}; printf '\n'
+}
