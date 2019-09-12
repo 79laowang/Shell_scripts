@@ -60,6 +60,18 @@ fail(){
 #    PARAMETERS: failed error message
 #       RETURNS: none
 #-------------------------------------------------------------------------------
-sp-line(){
+sp_line(){
     printf '%.0s-' {1..80}; printf '\n'
 }
+
+#---  FUNCTION  ----------------------------------------------------------------
+#          NAME: random_str
+#   DESCRIPTION: generate characters with specified length
+#    PARAMETERS: string length
+#       RETURNS: specified lengthrandom string
+#         USAGE: random_str 6
+#-------------------------------------------------------------------------------
+random_str()
+{
+    cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1
+} 
