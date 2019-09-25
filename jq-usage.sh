@@ -20,7 +20,7 @@ cat > test.json <<EOF
 EOF
 
 # Get all bugs id
-bugs=$(jq -r '.bugs[].bug_id' test.json
+bugs=$(jq -r '.bugs[].bug_id' test.json)
 
 # Modify spedified item value.
 BUB=43
