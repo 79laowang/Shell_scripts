@@ -11,8 +11,12 @@ log4sh(){
       printf "No input for function ${FUNCNAME[0]}!\n"
       return
   fi
-  [ $# -lt 2 ] && log_level=0 || log_level=${1}
-  shift
+  if [ $# -lt 2 ]; then
+      log_level=0
+  else
+      log_level=${1}
+      shift
+  fi
   if [ -z ${log_file} ]; then
     log_filename="$(basename $0)"
     log_filename="${log_filename%.*}-`date +%Y%m%d_%H%M%S`.log"
