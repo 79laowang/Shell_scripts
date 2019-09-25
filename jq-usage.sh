@@ -19,6 +19,9 @@ cat > test.json <<EOF
 }
 EOF
 
+# Get all bugs id
+bugs=$(jq -r '.bugs[].bug_id' test.json
+
 # Modify spedified item value.
 BUB=43
 jq -r --arg BUG "$BUG" '.bugs[]|select(.bug_id == $BUG).bug_verify="failed"' test.json
