@@ -3,16 +3,11 @@ The purpose of this documentation is to document and illustrate commonly-known a
 
 ## Catalog
 [log4sh](#log4sh)
+[Print a separate line](#Print a separate line)
 ### log4sh
 The most people know log4j(Java), The same, the Linux Shell also has log4sh.
 #### Example code:
 ```Bash
-#---  FUNCTION  ----------------------------------------------------------------
-#          NAME: log4sh
-#   DESCRIPTION: write the formated log into file
-#    PARAMETERS: log_level log_msg
-#       RETURNS: none
-#-------------------------------------------------------------------------------
 log4sh(){
   local log_olevel
 
@@ -78,7 +73,18 @@ main "$@"
 2019-10-15 04:35:57 [test.sh] [main] DEBUG: test ... 
 ```
     
-### script2
+### Print a separate line
+#### Example code:
+```Bash
+sp_line(){
+    printf '%.0s-' {1..80}; printf '\n'
+}
+```
+#### Example Results:
+```
+# printf '%.0s-' {1..80}; printf '\n'
+--------------------------------------------------------------------------------
+```
 
 ### script3
 
