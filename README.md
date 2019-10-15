@@ -102,5 +102,28 @@ random_str()
 m1P4wt
 ```
 
-### script4
+### List files of subdirectories recursively
+#### Example code:
+```Bash
+#!/bin/bash
+dir_traversal(){
+    for item in `ls ${1}`;do
+        sub_file="${1}/${item}"
+        [ -d "${sub_file}" ] && dir_traversal "${sub_file}" \
+            || printf "${sub_file}\n"
+    done
+}
+[ -z "${1}" ] && { printf "Enter a dir name!\n"; exit 1; }
+dir_traversal "${1}"
+```
+#### Example Results:
+```
+# ./dir-traversal.sh /var/log/
+/var/log//anaconda/anaconda.log
+/var/log//anaconda/ifcfg.log
+/var/log//anaconda/journal.log
+/var/log//anaconda/ks-script-0KvBaz.log
+/var/log//anaconda/ks-script-CfD3rG.log
+...
+```
 
