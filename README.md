@@ -6,6 +6,7 @@ The purpose of this documentation is to document and illustrate commonly-known a
 * [Print a separate line](#Print-a-separate-line)
 * [Generate random characters with specified length](#Generate-random-characters-with-specified-length)
 * [List files of subdirectories recursively](#List-files-of-subdirectories-recursively)
+* [Simple multi-threads running jobs](#Simple-multi--threads-running-jobs)
 
 ### log4sh
 The most people know log4j(Java), The same, the Linux Shell also has log4sh.
@@ -126,5 +127,49 @@ dir_traversal "${1}"
 /var/log//anaconda/ks-script-0KvBaz.log
 /var/log//anaconda/ks-script-CfD3rG.log
 ...
+```
+### Simple multi-threads running jobs
+#### Example code:
+```Bash
+#!/usr/bin/env bash
+job0()
+{
+    echo "Wget package ..."
+    sleep 4
+    touch ".${FUNCNAME[0]}done"
+}
+
+job1()
+{
+    echo "Prepare job data ..."
+    sleep 3
+    touch ".${FUNCNAME[0]}done"
+}
+
+main()
+{
+    job0 &
+    job1 &
+    wait  # Wait all jobs done
+    if [[ -f .job0done ]];then
+        echo "job0 done!"
+    fi
+    if [[ -f .job1done ]];then
+        echo "job1 done!"
+    fi
+
+    echo "all is ending"
+}
+
+#---------------- Main Program --------------
+main
+```
+#### Example Results:
+```
+Prepare job data ...
+Wget package ...
+job0 done!
+job1 done!
+all is ending
 ```
 
