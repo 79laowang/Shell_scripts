@@ -1,4 +1,4 @@
-# Linux Shell You can do
+# Linux Shell You can do like this
 The purpose of this documentation is to document and illustrate commonly-known and lesser-known usage doing various tasks using Linux shell.
 
 ## Catalog
