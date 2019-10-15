@@ -5,6 +5,7 @@ The purpose of this documentation is to document and illustrate commonly-known a
 * [log4sh](#log4sh)
 * [Print a separate line](#Print-a-separate-line)
 * [Generate random characters with specified length](#Generate-random-characters-with-specified-length)
+* [List files of subdirectories recursively](#List-files-of-subdirectories-recursively)
 
 ### log4sh
 The most people know log4j(Java), The same, the Linux Shell also has log4sh.
