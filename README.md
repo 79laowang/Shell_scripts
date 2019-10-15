@@ -5,7 +5,7 @@ The purpose of this documentation is to document and illustrate commonly-known a
 [log4sh](#log4sh)
 ### log4sh
 The most people know log4j(Java), The same, the Linux Shell also has log4sh.
-#### Example code
+#### Example code:
 ```Bash
 #---  FUNCTION  ----------------------------------------------------------------
 #          NAME: log4sh
@@ -56,7 +56,21 @@ log4sh(){
   esac
 }
 ```
+Write above log4sh example code to a common-funcs.sh file and load it in a script.
+#### Example Usage:
+```Bash
+main(){
+    . common-funcs.sh
+▸   log4sh "test ..."
+▸   log4sh 1 "test ..."
+▸   log4sh 2 "test ..."
+▸   log4sh 3 "test ..."
+}
 
+#---------------- Main Program --------------
+main "$@"
+
+```
  
     
 ### script2
