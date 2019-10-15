@@ -3,6 +3,7 @@ The purpose of this documentation is to document and illustrate commonly-known a
 
 ## Catalog
 *[log4sh](#log4sh)
+
 *[Print a separate line](#Print-a-separate-line)
 
 ### log4sh
