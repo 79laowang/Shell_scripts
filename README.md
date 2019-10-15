@@ -2,6 +2,7 @@
 The purpose of this documentation is to document and illustrate commonly-known and lesser-known usage doing various tasks using Linux shell.
 
 ## Catalog
+log4sh(#log4sh)
 ### log4sh
 The most people know log4j(Java), The same, the Linux Shell also has log4sh.
 #### Example code
