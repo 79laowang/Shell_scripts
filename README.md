@@ -4,6 +4,7 @@ The purpose of this documentation is to document and illustrate commonly-known a
 ## Catalog
 * [log4sh](#log4sh)
 * [Print a separate line](#Print-a-separate-line)
+* [Generate random characters with specified length](#Generate-random-characters-with-specified-length)
 
 ### log4sh
 The most people know log4j(Java), The same, the Linux Shell also has log4sh.
@@ -87,7 +88,19 @@ sp_line(){
 --------------------------------------------------------------------------------
 ```
 
-### script3
+### Generate random characters with specified length
+#### Example code:
+```Bash
+random_str()
+{
+    cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1
+} 
+```
+#### Example Usage:
+```Bash
+#random_str 6
+m1P4wt
+```
 
 ### script4
 
