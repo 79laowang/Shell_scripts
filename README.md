@@ -61,17 +61,20 @@ Write above log4sh example code to a common-funcs.sh file and load it in a scrip
 ```Bash
 main(){
     . common-funcs.sh
-▸   log4sh "test ..."
-▸   log4sh 1 "test ..."
-▸   log4sh 2 "test ..."
-▸   log4sh 3 "test ..."
+    log4sh "test ..."
+    log4sh 1 "test ..."
+    log4sh 2 "test ..."
+    log4sh 3 "test ..."
 }
 
 #---------------- Main Program --------------
 main "$@"
-
 ```
- 
+#### Example Result:
+>2019-10-15 04:35:57 [test.sh] [main] INFO: test ...
+2019-10-15 04:35:57 [test.sh] [main] WARNING: test ...
+2019-10-15 04:35:57 [test.sh] [main] ERROR: test ...
+2019-10-15 04:35:57 [test.sh] [main] DEBUG: test ... 
     
 ### script2
 
