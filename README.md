@@ -70,7 +70,7 @@ main(){
 #---------------- Main Program --------------
 main "$@"
 ```
-#### Example Result:
+#### Example Results:
 ```
 2019-10-15 04:35:57 [test.sh] [main] INFO: test ...
 2019-10-15 04:35:57 [test.sh] [main] WARNING: test ...
