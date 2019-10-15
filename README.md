@@ -13,7 +13,7 @@ The most people know log4j(Java), The same, the Linux Shell also has log4sh.
 #### Example code:
 ```Bash
 log4sh(){
-  local log_olevel
+  local log_level
 
   if [ $# -eq 0 ];then
       printf "No input for function ${FUNCNAME[0]}!\n"
