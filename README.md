@@ -7,6 +7,7 @@ The purpose of this documentation is to document and illustrate commonly-known a
 * [Generate random characters with specified length](#Generate-random-characters-with-specified-length)
 * [List files of subdirectories recursively](#List-files-of-subdirectories-recursively)
 * [Simple multi-threads running jobs](#Simple-multi-threads-running-jobs)
+* [Json processor tool jq usage](#Json-processor-tool-jq-usage)
 
 ### log4sh
 The most people know log4j(Java), The same, the Linux Shell also has log4sh.
@@ -173,3 +174,32 @@ job1 done!
 all is ending
 ```
 
+### Json processor tool jq usage
+#### Example code:
+```Bash
+cat > test.json <<EOF
+{
+  "bugs": [
+    {
+      "bug_verify": "",
+      "bug_id": "43"
+    },
+    {
+      "bug_verify": "",
+      "bug_id": "44"
+    },
+    {
+      "bug_verify": "",
+      "bug_id": "45"
+    }
+  ],
+}
+EOF
+
+# Get all bugs id
+bugs=$(jq -r '.bugs[].bug_id' test.json)
+
+# Modify spedified item value.
+BUB=43
+jq -r --arg BUG "$BUG" '.bugs[]|select(.bug_id == $BUG).bug_verify="failed"' test.json
+```
