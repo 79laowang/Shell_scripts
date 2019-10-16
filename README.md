@@ -8,6 +8,7 @@ The purpose of this documentation is to document and illustrate commonly-known a
 * [List files of subdirectories recursively](#List-files-of-subdirectories-recursively)
 * [Simple multi-threads running jobs](#Simple-multi-threads-running-jobs)
 * [Json processor tool jq usage](#Json-processor-tool-jq-usage)
+* [Shell dictionary usage](#Shell-dictionary-usage)
 
 ### log4sh
 The most people know log4j(Java), The same, the Linux Shell also has log4sh.
