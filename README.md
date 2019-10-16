@@ -203,3 +203,34 @@ bugs=$(jq -r '.bugs[].bug_id' test.json)
 BUB=43
 jq -r --arg BUG "$BUG" '.bugs[]|select(.bug_id == $BUG).bug_verify="failed"' test.json
 ```
+
+### Shell dictionary usage
+Dictionary / associative arrays / hash map are very useful data structures and they can be created in bash version 4.0 and above. 
+#### Example code:
+```Bash
+    declare -A dict
+
+    dict["key1"]=val1
+    dict+=( ["key2"]=val2 ["key3"]=val3 )
+    # Iterate dictionary and print keys- values.
+    for key in ${!dict[@]}; do
+        echo "${key}:${dict[${key}]}"
+    done
+    dict["key1"]=val11 # modify a key's value
+    echo "dict:key1->${dict["key1"]}"
+    echo ${dict[@]} # get all values
+    echo ${!dict[*]} # get all keys
+    unset dict[key1]  # lets delete key1
+    echo ${dict[*]} # get all values
+```
+#### Example Results:
+```
+# ./shell-dict.sh
+key3:val3
+key2:val2
+key1:val1
+dict:key1->val11
+val3 val2 val11
+key3 key2 key1
+val3 val2
+```
