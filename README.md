@@ -10,6 +10,7 @@ The purpose of this documentation is to document and illustrate commonly-known a
 * [Json processor tool jq usage](#Json-processor-tool-jq-usage)
 * [Shell dictionary usage](#Shell-dictionary-usage)
 * [Shell progress bar](#Shell-progress-bar)
+* [Shell progress dot](#Shell-progress-dot)
 
 ### log4sh
 The most people know log4j(Java), The same, the Linux Shell also has log4sh.
@@ -270,4 +271,36 @@ kill $BG_PID
 $ ./sh-progress-bar.sh
 Start downloading image
 Start downloading image \
+```
+### Shell progress dot
+#### Example Results:
+```Bash
+trap 'kill $BG_PID;echo;exit' 1 2 3 15
+
+function dots
+{
+stty -echo >/dev/null 2>&1
+while true
+do
+    echo -e ".\c"
+    sleep 1
+done
+stty echo
+echo
+}
+
+dots &
+BG_PID=$!
+
+# Main programm, we use sleep to replace
+sleep 10
+echo
+
+kill $BG_PID
+
+```
+#### Example Results:
+```
+$ ./sh-progress-dot.sh
+..........
 ```
