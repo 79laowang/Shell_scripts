@@ -9,8 +9,8 @@ The purpose of this documentation is to document and illustrate commonly-known a
 * [Simple multi-threads running jobs](#Simple-multi-threads-running-jobs)
 * [Json processor tool jq usage](#Json-processor-tool-jq-usage)
 * [Shell dictionary usage](#Shell-dictionary-usage)
+* [Shell progress rotor](#Shell-progress-rotor)
 * [Shell progress bar](#Shell-progress-bar)
-* [Shell progress dot](#Shell-progress-dot)
 
 ### log4sh
 The most people know log4j(Java), The same, the Linux Shell also has log4sh.
@@ -237,7 +237,7 @@ val3 val2 val11
 key3 key2 key1
 val3 val2
 ```
-### Shell progress bar
+### Shell progress rotor
 #### Example code:
 ```Bash
 trap 'kill $BG_PID;echo;exit' 1 2 3 15
@@ -272,7 +272,7 @@ $ ./sh-progress-bar.sh
 Start downloading image
 Start downloading image \
 ```
-### Shell progress dot
+### Shell progress bar
 #### Example Results:
 ```Bash
 trap 'kill $BG_PID;echo;exit' 1 2 3 15
@@ -282,7 +282,10 @@ function dots
 stty -echo >/dev/null 2>&1
 while true
 do
-    echo -e ".\c"
+    # Displays dot   
+    #echo -e ".\c"
+    # Displays bar
+    echo -e "▇\c"
     sleep 1
 done
 stty echo
@@ -301,6 +304,8 @@ kill $BG_PID
 ```
 #### Example Results:
 ```
-$ ./sh-progress-dot.sh
+$./sh-progress-dot.sh
 ..........
+$./sh-progress-dot.sh
+▇▇▇▇▇▇▇▇▇▇
 ```
