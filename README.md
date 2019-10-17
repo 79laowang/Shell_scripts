@@ -247,9 +247,8 @@ while true
 do
     for j in '-' '\\' '|' '/'
     do
-    ¦   echo -ne "\033[1D$j"
-    ¦   #echo -e "\b\b$j \c"
-    ¦   sleep 1
+        echo -ne "\033[1D$j"
+        sleep 1
     done
 done
 }
