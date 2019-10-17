@@ -9,6 +9,7 @@ The purpose of this documentation is to document and illustrate commonly-known a
 * [Simple multi-threads running jobs](#Simple-multi-threads-running-jobs)
 * [Json processor tool jq usage](#Json-processor-tool-jq-usage)
 * [Shell dictionary usage](#Shell-dictionary-usage)
+* [Shell progress bar](#Shell-progress-bar)
 
 ### log4sh
 The most people know log4j(Java), The same, the Linux Shell also has log4sh.
@@ -234,4 +235,40 @@ dict:key1->val11
 val3 val2 val11
 key3 key2 key1
 val3 val2
+```
+### Shell progress bar
+#### Example code:
+```Bash
+trap 'kill $BG_PID;echo;exit' 1 2 3 15
+
+function pbar
+{
+while true
+do
+    for j in '-' '\\' '|' '/'
+    do
+    ¦   echo -ne "\033[1D$j"
+    ¦   #echo -e "\b\b$j \c"
+    ¦   sleep 1
+    done
+done
+}
+
+# Use -e, the backslash will be display at the end of the line
+echo -e "Start downloading image  "
+# Use -n, the backslash will be display at the end of the words
+echo -n "Start downloading image  "
+pbar &
+BG_PID=$!
+
+# Main programm, we use sleep to replace
+sleep 10
+echo
+kill $BG_PID
+```
+#### Example Results:
+```
+$ ./sh-progress-bar.sh
+Start downloading image
+Start downloading image \
 ```
