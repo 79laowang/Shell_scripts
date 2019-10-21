@@ -11,7 +11,7 @@ The purpose of this documentation is to document and illustrate commonly-known a
 * [Shell dictionary usage](#Shell-dictionary-usage)
 * [Shell progress rotor](#Shell-progress-rotor)
 * [Shell progress bar](#Shell-progress-bar)
-* [Check if a directory exists](#Check if a directory exists)
+* [Check if a directory exists](#Check-if-a-directory-exists)
 
 ### log4sh
 The most people know log4j(Java), The same, the Linux Shell also has log4sh.
