@@ -11,6 +11,7 @@ The purpose of this documentation is to document and illustrate commonly-known a
 * [Shell dictionary usage](#Shell-dictionary-usage)
 * [Shell progress rotor](#Shell-progress-rotor)
 * [Shell progress bar](#Shell-progress-bar)
+* [Check if a directory exists](#Check if a directory exists)
 
 ### log4sh
 The most people know log4j(Java), The same, the Linux Shell also has log4sh.
@@ -308,4 +309,33 @@ $./sh-progress-dot.sh
 ..........
 $./sh-progress-dot.sh
 ▇▇▇▇▇▇▇▇▇▇
+```
+
+### Check if a directory exists
+A simple script to test if dir or file is present or not:
+#### Example code:
+```Bash
+if [ -d /home/test/dir ]; then 
+    echo "dir present"
+else
+    echo "dir not present"
+fi
+```
+But using above code, a symbolic link to a directory will also pass this check, try the below code should be better.
+```Bash
+if [ -d "$LINK_OR_DIR" ]; then 
+  if [ -L "$LINK_OR_DIR" ]; then
+    # It is a symlink!
+    # Symbolic link specific commands go here.
+    rm "$LINK_OR_DIR"
+  else
+    # It's a directory!
+    # Directory command goes here.
+    rmdir "$LINK_OR_DIR"
+  fi
+fi
+```
+Simplify,
+```Bash
+[[ -d "$DIR" && ! -L "$DIR" ]] && echo "It's a directory and not a symbolic link"
 ```
